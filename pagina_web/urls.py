@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from pagina_web.views import saludar, saludar_con_fecha, saludar_con_html
-from AppCoder.views import listar_estudiantes, listar_cursos
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),

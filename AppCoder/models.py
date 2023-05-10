@@ -3,6 +3,9 @@ from django.db import models
 class Curso(models.Model):
     nombre = models.CharField(max_length=80) #equivalente de str
     comision = models.IntegerField()  #equivalente a int
+    
+    def __str__(self):
+        return f"{self.nombre} | {self.comision}"
 
 class Estudiante(models.Model):
     nombre = models.CharField(max_length=120)
@@ -11,6 +14,9 @@ class Estudiante(models.Model):
     telefono = models.CharField(max_length=20)
     dni = models.CharField(max_length=32)
     fecha_nacimiento = models.DateField()
+    
+    def __str__(self):
+        return f"{self.nombre}, {self.apellido}"
 
 class Profesor(models.Model):
     nombre = models.CharField(max_length=120)
