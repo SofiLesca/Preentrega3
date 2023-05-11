@@ -4,6 +4,7 @@
 <section>
     <div>
         <h1>Lista de estudiantes</h1>
+        <a href="{% url 'crear-estudiante' %}">Ingresar Estudiante</a>
         <ul>
         {% for student in estudiantes %} 
          <li>{{student.apellido}},{{student.nombre}}</li>

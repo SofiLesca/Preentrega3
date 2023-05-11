@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from django.urls import reverse
+
 
 from AppCoder.models import Estudiante, Curso
 
@@ -25,10 +27,39 @@ def listar_cursos(request):
     return http_response
   
 def crear_curso(request):
-    contexto = {}
+  contexto = {}
+  if request.method == "POST":
+    data=request.POST
+    nombre=data["nombre"]
+    comision=data["comision"]
+    curso=Curso.objects.create(nombre=nombre, comision=comision)
+    curso.save()
+    url_exitosa=reverse('lista_cursos')
+    return redirect(url_exitosa)
+  else:
     http_response = render(
       request=request, 
     template_name='AppCoder/formulario_1.html', 
+      context=contexto,
+  )
+    return http_response
+  
+def crear_estudiante(request):
+  contexto = {}
+  if request.method == "POST":
+    data=request.POST
+    nombre=data["nombre"]
+    apellido=data["apellido"]
+    email=data["email"]
+    dni=data["dni"]
+    curso=Estudiante.objects.create(nombre=nombre, apellido=apellido, email=email,dni=dni)
+    curso.save()
+    url_exitosa=reverse('lista_estudiantes')
+    return redirect(url_exitosa)
+  else:
+    http_response = render(
+      request=request, 
+    template_name='AppCoder/formulario_estudiantes.html', 
       context=contexto,
   )
     return http_response

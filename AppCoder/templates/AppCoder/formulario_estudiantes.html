@@ -1,0 +1,16 @@
+{% extends "AppCoder/base.html"%}
+
+{% block contenido %}
+<form action="{% url 'crear-estudiante' %}" method="post">
+    {% csrf_token %}
+    <p>Nombre y Apellido</p>
+    <input type="text" name="nombre">
+    <input type="text" name="apellido">
+    <p>Email</p>
+    <input type="text" name="email">
+    <p>DNI</p>
+    <input type="number" name="DNI">
+    <input type="submit" value="Enviar">
+</form>
+
+{% endblock contenido %}

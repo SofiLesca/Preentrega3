@@ -2,13 +2,12 @@
 
 {% block contenido %}
 <form action="{% url 'crear-curso' %}" method="post">
-    {% csrf_token}
+    {% csrf_token %}
     <p>Nombre del curso</p>
     <input type="text" name="nombre">
     <p>Comision</p>
     <input type="number" name="comision">
     <input type="submit" value="Enviar">
-
 </form>
 
 {% endblock contenido %}
