@@ -63,3 +63,18 @@ def crear_estudiante(request):
       context=contexto,
   )
     return http_response
+  
+def buscar_cursos(request):
+  if request.method == "POST":
+    data=request.POST
+    busqueda=data["busqueda"]
+    cursos = Curso.objects.filter(comision__exact=busqueda)
+    contexto={
+      "cursos":cursos,
+    }
+  http_response = render(
+    request=request, 
+    template_name='AppCoder/lista_cursos.html', 
+    context=contexto,
+  )
+  return http_response

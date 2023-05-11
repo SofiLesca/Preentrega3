@@ -17,11 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from AppCoder.views import listar_estudiantes, listar_cursos,crear_curso,crear_estudiante
+from AppCoder.views import listar_estudiantes, listar_cursos,crear_curso,crear_estudiante, buscar_cursos
 
 urlpatterns = [
     path ("estudiantes/", listar_estudiantes, name="lista_estudiantes"),
     path("cursos/", listar_cursos, name="lista_cursos"),
     path("crear-curso/", crear_curso, name="crear-curso"),
     path("crear-estudiante/", crear_estudiante, name="crear-estudiante"),
+    path("buscar-cursos/",buscar_cursos, name="buscar_cursos"),
 ]
